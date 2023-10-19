@@ -1,0 +1,14 @@
+div {
+  border: 1px solid black;
+  width: 50%;
+  height: 50%;
+  background-color: bisque;
+  border-radius: 5px;
+}
+ul {
+  list-style: none;
+}
+li {
+  padding: 1em;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
