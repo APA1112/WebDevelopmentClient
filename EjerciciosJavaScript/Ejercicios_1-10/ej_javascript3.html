@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ej_javascript3</title>
+    </head>
+    <body>
+        <script>
+            var a, b, c, resultadoRaiz;
+            var resultado1, resultado2;
+
+            a = parseInt(prompt("Introduce el valor de A"));
+            b = parseInt(prompt("Introduce el valor de B"));
+            c = parseInt(prompt("Introduce el valor de C"));
+            resultadoRaiz = Math.pow(b, 2) - (4 * a * c);
+
+            if(resultadoRaiz>0)
+            {
+                document.write("<p>Hay dos posibles soluciones</p>");
+                resultado1 = (-b + Math.sqrt(resultadoRaiz)) / (2 * a);
+                resultado2 = (-b - Math.sqrt(resultadoRaiz)) / (2 * a);
+                document.write("Solución 1: "+resultado1+"<br />");
+                document.write("Solución 2: "+resultado2);
+            }
+            else if(resultadoRaiz == 0)
+            {
+                document.write("<p>Hay una única solución</p>");
+                resultado1 = (-b + Math.sqrt(resultadoRaiz)) / (2 * a);
+                document.write("Solución 1: "+resultado1);
+            }
+            else
+            {
+                document.write("<p>No hay soluciones posibles</p>");
+            }
+        </script>
+    </body>
+</html>

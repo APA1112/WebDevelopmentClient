@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ej_javascript9c</title>
+  </head>
+  <body>
+    <script>
+      function cambiarColor(color) {
+        document.body.style.backgroundColor = color;
+      }
+      function cambiarMas() {
+        let color = document.body.style.backgroundColor;
+        switch (color) {
+          case "red":
+            document.body.style.backgroundColor = "green";
+            break;
+          case "green":
+            document.body.style.backgroundColor = "blue";
+            break;
+          case "blue":
+            document.body.style.backgroundColor = "yellow";
+            break;
+          case "yellow":
+            document.body.style.backgroundColor = "red";
+            break;
+          default:
+            document.body.style.backgroundColor = "red";
+            break;
+        }
+      }
+    </script>
+    <h3>Elige un color para cambiar el fondo</h3>
+    <button onclick="cambiarColor('red')">Rojo</button>
+    <button onclick="cambiarColor('green')">Verde</button>
+    <button onclick="cambiarColor('blue')">Azul</button>
+    <button onclick="cambiarColor('yellow')">Amarillo</button>
+    <button onclick="cambiarMas()">Mas</button>
+  </body>
+</html>

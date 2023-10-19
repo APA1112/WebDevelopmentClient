@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ej_javascript7</title>
+        <style>
+            .impar
+            {
+                background-color: #99ff8A;
+            }
+            .par
+            {
+                background-color: #8ADFFF;
+            }
+            span
+            {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <table border="1" style="width: 70%; text-align: center;">
+            <script>
+                var numero;
+                numero = prompt("Introduce el numero que desees");
+                document.write("<td colspan="+5+">");
+                document.write("TABLA DE MULTIPLICAR DEL "+numero);
+                document.write("</td>");
+                for(let i = 1; i<= 10; i++)
+                {
+                    var resultado = i*numero;
+                    if (resultado%2==0) 
+                    {
+                        document.write("<tr class = par>");
+                        document.write("<td>"+i+"</td>");
+                        document.write("<td>"+"x"+"</td>");
+                        document.write("<td>"+numero+"</td>");
+                        document.write("<td>"+"="+"</td>");
+                        document.write("<td><span>"+(resultado)+"</span></td>");
+                        document.write("</tr>");   
+                    }
+                    else
+                    {
+                        document.write("<tr class = impar>");
+                        document.write("<td>"+i+"</td>");
+                        document.write("<td>"+"x"+"</td>");
+                        document.write("<td>"+numero+"</td>");
+                        document.write("<td>"+"="+"</td>");
+                        document.write("<td><span>"+(resultado)+"</span></td>");
+                        document.write("</tr>");  
+                    }
+                }
+            </script>
+        </table>
+    </body>
+</html>

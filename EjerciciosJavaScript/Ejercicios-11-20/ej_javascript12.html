@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio JavaScript 12</title>
+  </head>
+  <body>
+    <div id="logo">
+      <img id="imagen" src="IMAGEN_1.jpeg" alt="imagen Cambiante" />
+    </div>
+    <div id="subtitulo">Pie de foto</div>
+
+    <script>
+      const imagenes = [
+        "IMAGEN_1.jpeg",
+        "IMAGEN_2.jpg",
+        "IMAGEN_3.jpg",
+        "IMAGEN_4.png",
+      ];
+      let fotoActual = 0;
+      //Con esta variable guardamos el elemento que tenga la id de imagen
+      const imageElement = document.getElementById("imagen");
+      const subtitleElement = document.getElementById("subtitulo");
+
+      function changeImage() {
+        fotoActual += 1;
+        if (fotoActual == imagenes.length) {
+          fotoActual = 0;
+        }
+        imageElement.src = imagenes[fotoActual];
+      }
+      setInterval(changeImage, 2000);
+    </script>
+  </body>
+</html>

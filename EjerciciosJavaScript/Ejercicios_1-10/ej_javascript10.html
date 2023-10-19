@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ej_javascript10</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      #supDch {
+        background-color: lightblue;
+        position: absolute;
+        width: 80px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+        top: 0;
+        right: 0;
+        border-radius: 6px;
+        border: 1px;
+      }
+      #infDch {
+        background-color: lightblue;
+        position: absolute;
+        width: 80px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+        bottom: 0;
+        right: 0;
+        border-radius: 6px;
+        border: 1px;
+      }
+      #supIzq {
+        background-color: lightblue;
+        position: absolute;
+        width: 80px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        border-radius: 6px;
+        border: 1px;
+      }
+      #infIzq {
+        background-color: lightblue;
+        position: absolute;
+        width: 80px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+        bottom: 0;
+        left: 0;
+        border-radius: 6px;
+        border: 1px;
+      }
+      #crear {
+        background-color: lightblue;
+        position: absolute;
+        width: 80px;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+        top: 0;
+        right: 50%;
+        border-radius: 6px;
+        border: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var ventana;
+      function crearVentana() {
+        var centroAlturaMonitor = screen.availHeight / 2 - 100;
+        var centroAnchuraMonitor = screen.availWidth8 / 2 - 100;
+        var opcionesVentana =
+          "width=100, height=100, left=" +
+          centroAnchuraMonitor +
+          ",top=" +
+          centroAlturaMonitor;
+        ventana = window.open("", "Ventana", opcionesVentana);
+        ventana.document.body.style.backgroundColor = "orange";
+      }
+
+      function moverVentana(x, y) {
+        ventana.moveTo(x, y);
+        ventana.focus();
+      }
+    </script>
+    <button id="crear" onclick="crearVentana()">Crear Ventana</button>
+    <button id="supDch" onclick="moverVentana(screen.availWidth-100, 0)">
+      Superior Derecha
+    </button>
+    <button id="supIzq" onclick="moverVentana(0, 0)">Superior Izquierda</button>
+    <button
+      id="infDch"
+      onclick="moverVentana(screen.availWidth-100, screen.availHeight-100)"
+    >
+      Inferior Derecha
+    </button>
+    <button id="infIzq" onclick="moverVentana(0, screen.availHeight-100)">
+      Inferior Izquierda
+    </button>
+  </body>
+</html>
