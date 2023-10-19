@@ -1,0 +1,11 @@
+div{
+    border: 1px solid black;
+    border-radius: 5px;
+    height: fit-content;
+    width: fit-content;
+    padding: 1em;
+    background-color: bisque;
+}
+button{
+    float: right;
+}
