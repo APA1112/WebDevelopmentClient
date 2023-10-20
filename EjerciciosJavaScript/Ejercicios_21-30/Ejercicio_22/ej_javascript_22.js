@@ -1,8 +1,7 @@
 function main() {
   var elemento = document.getElementById("miDiv");
-  console.log(elemento);
 
-  //Añadimos un EventListener para cuando el raton este sobre el div cambie
+  //EventListener para cuando el raton este sobre el div cambie
   elemento.addEventListener("mouseover", function () {
     elemento.style.backgroundColor = "blue";
     elemento.style.color = "yellow";
