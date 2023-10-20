@@ -19,4 +19,4 @@ function irWeb(){
     }
 }
 
-window.addEventListener("load", main);
+window.addEventListener("DOMContentLoaded", main);
