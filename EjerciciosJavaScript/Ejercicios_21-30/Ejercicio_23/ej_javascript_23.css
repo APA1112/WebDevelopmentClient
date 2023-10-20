@@ -8,4 +8,8 @@ div{
 }
 button{
     float: right;
+    cursor: pointer;
+}
+input{
+    cursor: pointer;
 }

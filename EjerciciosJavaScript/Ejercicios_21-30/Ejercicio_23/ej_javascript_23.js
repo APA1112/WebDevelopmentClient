@@ -1,3 +1,7 @@
+function main(){
+    var boton = document.getElementById("open");
+    boton.addEventListener("click", irWeb);
+}
 function irWeb(){
     var opciones = document.getElementsByName("web");
     var link = null;
@@ -14,3 +18,5 @@ function irWeb(){
         alert("Por favor, selecciona una página web.");
     }
 }
+
+window.addEventListener("load", main);
