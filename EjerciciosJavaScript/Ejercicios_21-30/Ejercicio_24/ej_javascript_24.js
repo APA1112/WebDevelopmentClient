@@ -3,7 +3,7 @@ function irWeb(){
 
     for (var i = 0; i < opciones.length; i++) {
         if (opciones[i].checked) {
-            window.open(opciones[i].value);
+            window.open(opciones[i].value, "_blank");
         }
     }
 }
