@@ -1,8 +1,15 @@
-var lista = document.getElementsByTagName("option");
-var seleccion = lista.selectedIndex;
+function main() {
+  var boton = document.getElementById("open");
+  boton.addEventListener("click", irWeb);
+}
 
 function irWeb() {
+  var lista = document.getElementById("webs");
+  var seleccion = lista.selectedIndex;
   if (seleccion) {
-    window.open(seleccion.value);
+    console.log(lista.value);
+    window.open(lista.value, "_blank");
   }
 }
+
+window.addEventListener("DOMContentLoaded", main);
