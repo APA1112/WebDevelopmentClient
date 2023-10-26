@@ -5,7 +5,7 @@ function actualizarContador() {
     const restaFechas = Math.floor((fechaVacaciones - fecha)/(1000*60*60*24));
     console.log(restaFechas);
 
-    if(restaFechas>0){
+    if(restaFechas>=0){
         var decenas = Math.floor(restaFechas/10);
         var unidades = restaFechas%10;
 
