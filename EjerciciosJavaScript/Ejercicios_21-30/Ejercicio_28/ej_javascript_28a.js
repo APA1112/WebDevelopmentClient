@@ -1,5 +1,5 @@
 const fechaVacaciones = new Date("2023-12-19");
-//Crear una función para restar dos fechas
+//Función para restar dos fechas
 function restarFechas(a, b) {
   var resta = 0;
   resta = Math.floor((a - b) / (1000 * 60 * 60 * 24));
