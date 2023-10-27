@@ -5,15 +5,11 @@ function actualizarContador() {
   const restaFechas = Math.floor(
     (fechaVacaciones - fecha) / (1000 * 60 * 60 * 24)
   );
-  console.log(restaFechas);
 
   if (restaFechas >= 0) {
-    var decenas = Math.floor(restaFechas / 10);
-    var unidades = restaFechas % 10;
-
-    document.getElementById("resultado").innerHTML =
-      "Faltan: " + decenas + unidades + " días";
+    //Si no voy a poner HTML usar textContent
+    document.getElementById("resultado").textContent = `Faltan: ${restaFechas} dias`;
   }
 }
 
-setInterval(actualizarContador, 1000);
+window.addEventListener("DOMContentLoaded" ,actualizarContador);

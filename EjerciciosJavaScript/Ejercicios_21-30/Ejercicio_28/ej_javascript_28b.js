@@ -11,9 +11,8 @@ function actualizarContador() {
     var decenas = Math.floor(restaFechas / 10);
     var unidades = restaFechas % 10;
 
-    document.getElementById("resultado").innerHTML =
-      "Faltan: " + decenas + unidades + " días";
+    
   }
 }
 
-setInterval(actualizarContador, 1000);
+window.addEventListener("DOMContentLoaded", actualizarContador);
