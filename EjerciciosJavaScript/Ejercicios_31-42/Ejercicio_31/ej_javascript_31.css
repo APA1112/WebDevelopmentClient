@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.principal img{
+    position: fixed;
+    height: 80vh;
+    width: 100vw;
+}
+.secundario img{
+    width: 40%;
+    height: auto;
+    position: fixed;
+    bottom: 20vh;
+    left: 20vw;
+}
+#botones{
+    position: fixed;
+    bottom: 0;
+    height: 20vh;
+    width: 100vw;
+    background-color:burlywood;
+}
+#botones button{
+    background-color: white;
+    border: 5px double purple;
+    border-radius: 5px;
+    width: 15%;
+    height: auto;
+    margin-top: .2rem;
+    margin-left: .9rem;
+    cursor: pointer;
+}
+#botones button:hover{
+    background-color: gray;
+    color: white;
+}
