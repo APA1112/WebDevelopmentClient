@@ -7,8 +7,8 @@
     height: 80vh;
     width: 100vw;
 }
-.secundario img{
-    width: 40%;
+.secundario #horca{
+    width: 30rem;
     height: auto;
     position: fixed;
     bottom: 20vh;
@@ -34,4 +34,23 @@
 #botones button:hover{
     background-color: gray;
     color: white;
+}
+
+#word{
+    position: fixed;
+    margin-top: 13vh;
+    left: 10vw;
+    height: 10vh;
+    width: 80vw;
+    color:antiquewhite;
+    font-size: 300%;
+    text-align: center;
+}
+#historial{
+    position: fixed;
+    margin-left: 80%;
+    color: aliceblue;
+    background-color: black;
+    height: 10vh;
+    width: 20vw;
 }

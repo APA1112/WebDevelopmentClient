@@ -23,8 +23,7 @@ const words = [
 
 const main = function () {
   createButtons();
-  var randomWord = chooseWord(words.length);
-  console.log(randomWord);
+  showWord();
 };
 
 const createButtons = function () {
@@ -34,8 +33,9 @@ const createButtons = function () {
     var letter = alphabet[i];
     var button = document.createElement("button");
     button.textContent = letter;
-    //Añadimos el id al botón que creamos
-    button.setAttribute("id", "btn" + letter);
+    button.addEventListener("click", function(){
+      wordHistorical(this.textContent);
+    });
     // Añadimos el botón al div
     buttons.appendChild(button);
   }
@@ -46,4 +46,14 @@ const chooseWord = function(a){
     return words[randomNum];
 }
 
+const showWord = function(){
+  var word = document.getElementById("word");
+  var choosenWord = chooseWord(words.length);
+  word.textContent = choosenWord; 
+}
+
+const wordHistorical = function(a){
+  var historical = document.getElementById("letras");
+  historical.textContent += a+" ";
+}
 window.addEventListener("DOMContentLoaded", main);
