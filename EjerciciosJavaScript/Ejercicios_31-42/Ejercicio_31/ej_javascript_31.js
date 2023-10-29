@@ -18,14 +18,16 @@ const words = [
   "ciruela",
   "albaricoque",
   "mandarina",
-  "granada"
+  "granada",
 ];
-
+var choosenWord;
+var vidas = 6;
 const main = function () {
   createButtons();
   showWord();
 };
-
+//Funcion con la cual creamos los botones para jugar, ademas le añadimos
+//un eventListener para cuando lo pulsemos que se añadan al resgitro de letras
 const createButtons = function () {
   var buttons = document.getElementById("botones");
   var alphabet = "abcdefghijklmnñopqrstuvwxyz".split("");
@@ -33,27 +35,43 @@ const createButtons = function () {
     var letter = alphabet[i];
     var button = document.createElement("button");
     button.textContent = letter;
-    button.addEventListener("click", function(){
+    button.addEventListener("click", function () {
       wordHistorical(this.textContent);
+      if (choosenWord.includes(this.textContent)) {
+        console.log(`La palabra contiene la letra ${this.textContent}`);
+      } else {
+        checkLifes(vidas);
+        var imgShow = document.getElementById(vidas);
+        imgShow.classList.toggle("visible");
+        vidas--;
+      }
     });
     // Añadimos el botón al div
     buttons.appendChild(button);
   }
 };
-
-const chooseWord = function(a){
-    var randomNum = Math.floor(Math.random()*a);
-    return words[randomNum];
-}
-
-const showWord = function(){
+//Elegimos una palabra aleatoria del array que pasamos como parametro (b) y de su longitud
+//la cual tambien pasamos como parametro (a)
+const chooseWord = function (a, b) {
+  var randomNum = Math.floor(Math.random() * a);
+  return b[randomNum];
+};
+choosenWord = chooseWord(words.length, words);
+//Mostramos la palabra aleatoria que generamos con la función chooseWord
+const showWord = function () {
   var word = document.getElementById("word");
-  var choosenWord = chooseWord(words.length);
-  word.textContent = choosenWord; 
-}
-
-const wordHistorical = function(a){
+  word.textContent = choosenWord;
+};
+//Esta función concatena lo que haya en el elemento con el id letras
+//junto al valor de la variable a
+const wordHistorical = function (a) {
   var historical = document.getElementById("letras");
-  historical.textContent += a+" ";
+  historical.textContent += a + " ";
+};
+//Comprobamos que la variable que le pasamos por parametro no sea cero
+const checkLifes = function(a){
+  if(a == 0){
+    alert("Has perdido");
+  }
 }
 window.addEventListener("DOMContentLoaded", main);

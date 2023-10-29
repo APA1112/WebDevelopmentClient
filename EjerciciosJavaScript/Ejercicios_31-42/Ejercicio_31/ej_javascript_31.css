@@ -54,3 +54,19 @@
     height: 10vh;
     width: 20vw;
 }
+img.invisible{
+    position: fixed;
+    top: 22rem;
+    left: 20rem;
+    height: 29vh;
+    width: auto;
+    visibility: hidden;
+}
+img.visible{
+    position: fixed;
+    top: 22rem;
+    left: 20rem;
+    height: 29vh;
+    width: auto;
+    visibility: unset;
+}
