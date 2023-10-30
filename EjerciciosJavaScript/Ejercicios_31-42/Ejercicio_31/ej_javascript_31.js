@@ -22,6 +22,7 @@ const words = [
 ];
 var choosenWord;
 var vidas = 6;
+
 const main = function () {
   createButtons();
   choosenWord = chooseWord(words.length, words);
@@ -67,7 +68,11 @@ const showWord = function () {
 //junto al valor de la variable a
 const wordHistorical = function (a) {
   var historical = document.getElementById("letras");
-  historical.textContent += a + " ";
+  if (historical.textContent.includes(a)) {
+    historical.textContent = historical.textContent;
+  } else {
+    historical.textContent += a + " ";
+  }
 };
 //Comprobamos que la variable que le pasamos por parametro no sea cero
 const checkLifes = function (a) {
@@ -77,12 +82,12 @@ const checkLifes = function (a) {
 };
 
 const testLetter = function (choosenWord, a) {
-  var letters = choosenWord.split('');
+  var letters = choosenWord.split("");
   var lettersToGuess = letters.length;
-  console.log(lettersToGuess);
-  var guessedLetters=[];
+  var guessedLetters = [];
   console.log(letters);
-  if (letters.includes(a)){
+  if (letters.includes(a)) {
+    console.log(letters.indexOf(a));
     return true;
   }
   return false;
