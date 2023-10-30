@@ -22,6 +22,7 @@ const words = [
 ];
 var choosenWord;
 var vidas = 6;
+var alphabet = "abcdefghijklmnñopqrstuvwxyz".split("");
 
 const main = function () {
   createButtons();
@@ -32,7 +33,6 @@ const main = function () {
 //un eventListener para cuando lo pulsemos que se añadan al resgitro de letras
 const createButtons = function () {
   var buttons = document.getElementById("botones");
-  var alphabet = "abcdefghijklmnñopqrstuvwxyz".split("");
   for (var i = 0; i < alphabet.length; i++) {
     var letter = alphabet[i];
     var button = document.createElement("button");
