@@ -11,8 +11,8 @@
     width: 30rem;
     height: auto;
     position: fixed;
-    bottom: 20vh;
-    left: 20vw;
+    bottom: 11rem;
+    left: 10rem;
 }
 #botones{
     position: fixed;
@@ -50,7 +50,8 @@
     position: fixed;
     margin-left: 80%;
     color: aliceblue;
-    background-color: black;
+    background-color: rgb(136, 136, 136, 0.5);
+    border-radius: 5px;
     height: 10vh;
     width: 20vw;
 }

@@ -24,6 +24,7 @@ var choosenWord;
 var vidas = 6;
 const main = function () {
   createButtons();
+  choosenWord = chooseWord(words.length, words);
   showWord();
 };
 //Funcion con la cual creamos los botones para jugar, ademas le añadimos
@@ -37,7 +38,7 @@ const createButtons = function () {
     button.textContent = letter;
     button.addEventListener("click", function () {
       wordHistorical(this.textContent);
-      if (choosenWord.includes(this.textContent)) {
+      if (testLetter(choosenWord, this.textContent)) {
         console.log(`La palabra contiene la letra ${this.textContent}`);
       } else {
         checkLifes(vidas);
@@ -56,7 +57,7 @@ const chooseWord = function (a, b) {
   var randomNum = Math.floor(Math.random() * a);
   return b[randomNum];
 };
-choosenWord = chooseWord(words.length, words);
+
 //Mostramos la palabra aleatoria que generamos con la función chooseWord
 const showWord = function () {
   var word = document.getElementById("word");
@@ -69,9 +70,21 @@ const wordHistorical = function (a) {
   historical.textContent += a + " ";
 };
 //Comprobamos que la variable que le pasamos por parametro no sea cero
-const checkLifes = function(a){
-  if(a == 0){
+const checkLifes = function (a) {
+  if (a == 0) {
     alert("Has perdido");
   }
-}
+};
+
+const testLetter = function (choosenWord, a) {
+  var letters = choosenWord.split('');
+  var lettersToGuess = letters.length;
+  console.log(lettersToGuess);
+  var guessedLetters=[];
+  console.log(letters);
+  if (letters.includes(a)){
+    return true;
+  }
+  return false;
+};
 window.addEventListener("DOMContentLoaded", main);
