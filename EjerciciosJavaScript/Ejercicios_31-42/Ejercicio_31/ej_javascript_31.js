@@ -23,7 +23,8 @@ const words = [
 var choosenWord;
 var letrasCorrectas=[];
 var historial=[];
-var vidas = 5;
+var vidas = 6;
+var fallos=0;
 let acertadas = 0;
 var alphabet = "abcdefghijklmnñopqrstuvwxyz".split("");
 
@@ -94,7 +95,9 @@ function comprobarLetra(palabra, letra){
   } 
   if(!letraEncontrada)
   {
-    document.getElementById("imagenes").innerHTML = `<img src="recursosAhorcado/${vidas}.png">`;
+    console.log("No esta la letra");
+    document.getElementById("imagenes").innerHTML = `<img src="recursosAhorcado/${fallos}.png">`;
+    fallos++;
     vidas--;
     console.log(vidas);
     if (vidas===0){
@@ -112,9 +115,8 @@ function reiniciar(){
   choosenWord = chooseWord(words.length, words);
   document.getElementById('letras').textContent = " ";
   vidas = 6;
-  for(let i = 0; i<6; i++){
-    var imagen = document.getElementById(i);
-    imagen.classList.remove('visible');
-  }
+
+  document.getElementById("imagenes").innerHTML = "";
+  fallos = 0;
 }
 window.addEventListener("DOMContentLoaded", main);
