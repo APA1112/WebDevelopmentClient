@@ -60,7 +60,11 @@ const chooseWord = function (a, b) {
 //Mostramos la palabra aleatoria que generamos con la función chooseWord
 const showWord = function () {
   var word = document.getElementById("word");
-  word.textContent = letrasCorrectas.join(' ');
+  if(letrasCorrectas.length === 0){
+    
+  } else {
+    word.textContent = letrasCorrectas.join(' ');
+  }
 };
 
 function comprobarLetra(palabra, letra){
@@ -78,8 +82,10 @@ function comprobarLetra(palabra, letra){
       letrasCorrectas[i] = '_';
     }
   }
+
   document.getElementById('historial').textContent += letra + " ";
-  if(palabra.length === acertadas){
+
+  if(palabra.join('') === letrasCorrectas.join('')){
     alert("Has ganado");
     letrasCorrectas = [];
     acertadas = 0;
@@ -95,7 +101,7 @@ function comprobarLetra(palabra, letra){
       letrasCorrectas = [];
       acertadas = 0;
       choosenWord = chooseWord(words.length, words);
-      document.getElementById('historial').textContent = " ";
+      document.getElementById('historial').textContent = "¿Qué letras has dicho?";
     }
   } 
   return letrasCorrectas;
