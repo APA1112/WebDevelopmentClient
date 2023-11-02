@@ -24,10 +24,9 @@
 }
 #botones{
     position: absolute;
-    bottom: 0;
+    bottom: -11.8rem;
     border: 1px solid black;
     border-radius: 5px;
-    top: 47.7rem;
     height: 19vh;
     width: 90vw;
     background-color:burlywood;

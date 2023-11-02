@@ -21,10 +21,10 @@ const words = [
   "granada",
 ];
 var choosenWord;
-var letrasCorrectas=[];
-var historial=[];
+var letrasCorrectas = [];
+var historial = [];
 var vidas = 6;
-var fallos=0;
+var fallos = 1;
 let acertadas = 0;
 var alphabet = "abcdefghijklmnñopqrstuvwxyz".split("");
 
@@ -33,20 +33,22 @@ const main = function () {
   divBotones.innerHTML = crearBotones(alphabet);
   choosenWord = chooseWord(words.length, words);
   showWord();
-  document.getElementById('botones').addEventListener('click', function(event) {
-    const botonPulsado = event.target;
-    if (botonPulsado.tagName === 'BUTTON') {
-      let letra = botonPulsado.textContent;
-      let resultado = comprobarLetra(choosenWord, letra);
-      console.log(resultado);
-      showWord();
-    }
-  });
+  document
+    .getElementById("botones")
+    .addEventListener("click", function (event) {
+      const botonPulsado = event.target;
+      if (botonPulsado.tagName === "BUTTON") {
+        let letra = botonPulsado.textContent;
+        let resultado = comprobarLetra(choosenWord, letra);
+        console.log(resultado);
+        showWord();
+      }
+    });
 };
 
 //Funcion con la cual creamos los botones, le pasamos el array con las letras y devuelve un string con los botones
-function crearBotones(alphabet){
-  let botonesHTML = '';
+function crearBotones(alphabet) {
+  let botonesHTML = "";
   for (let i = 0; i < alphabet.length; i++) {
     const letra = alphabet[i];
     botonesHTML += `<button>${letra}</button>`;
@@ -62,61 +64,65 @@ const chooseWord = function (a, b) {
 //Mostramos la palabra aleatoria que generamos con la función chooseWord
 const showWord = function () {
   var word = document.getElementById("word");
-  if(letrasCorrectas.length === 0){
+  if (letrasCorrectas.length === 0) {
     word.textContent = "Pulsa una letra para iniciar";
   } else {
-    word.textContent = letrasCorrectas.join(' ');
+    word.textContent = letrasCorrectas.join(" ");
   }
 };
-
-function comprobarLetra(palabra, letra){
+//comprobarLetra comprueba que la letra que pasamos por parametro este en la palabra que pasamos
+// por parametro y nos devuelve un array con la letra en la posicion o posiciones en las que
+// aparece.
+function comprobarLetra(palabra, letra) {
   palabra = palabra.toLowerCase();
-  palabra = palabra.split('');
+  palabra = palabra.split("");
   letra = letra.toLowerCase();
   let letraEncontrada = false;
-  
-  for (let i = 0; i < palabra.length; i++){
+
+  for (let i = 0; i < palabra.length; i++) {
     if (palabra[i] === letra) {
       letrasCorrectas[i] = letra;
       acertadas++;
       letraEncontrada = true;
     } else if (letrasCorrectas[i] === undefined) {
-      letrasCorrectas[i] = '_';
+      letrasCorrectas[i] = "_";
     }
   }
-  if (!historial.includes(letra)){
+  if (!historial.includes(letra)) {
     historial.push(letra);
   }
-  document.getElementById('letras').textContent = historial.join(' ');
 
-  if(palabra.join('') == letrasCorrectas.join('')){
+  document.getElementById("letras").textContent = historial.join(" ");
+
+  if (palabra.join("") == letrasCorrectas.join("")) {
     alert("Has ganado");
     reiniciar();
-  } 
-  if(!letraEncontrada)
-  {
+  }
+
+  if (!letraEncontrada) {
     console.log("No esta la letra");
-    document.getElementById("imagenes").innerHTML = `<img src="recursosAhorcado/${fallos}.png">`;
+    document.getElementById(
+      "imagenes"
+    ).innerHTML = `<img src="recursosAhorcado/${fallos}.png">`;
     fallos++;
     vidas--;
     console.log(vidas);
-    if (vidas===0){
-      alert ("Has perdido");
+    if (vidas === 0) {
+      alert("Has perdido");
       reiniciar();
     }
-  } 
+  }
   return letrasCorrectas;
 }
-
-function reiniciar(){
+//Con la funcion reiniciar ponemos al valor de origen a todas las variables
+function reiniciar() {
   letrasCorrectas = [];
   acertadas = 0;
   historial = [];
   choosenWord = chooseWord(words.length, words);
-  document.getElementById('letras').textContent = " ";
+  document.getElementById("letras").textContent = " ";
   vidas = 6;
-
   document.getElementById("imagenes").innerHTML = "";
-  fallos = 0;
+  fallos = 1;
 }
 window.addEventListener("DOMContentLoaded", main);
