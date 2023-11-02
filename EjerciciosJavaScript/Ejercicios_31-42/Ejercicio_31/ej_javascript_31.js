@@ -61,7 +61,7 @@ const chooseWord = function (a, b) {
 const showWord = function () {
   var word = document.getElementById("word");
   if(letrasCorrectas.length === 0){
-    
+    word.textContent = "Pulsa una letra para iniciar";
   } else {
     word.textContent = letrasCorrectas.join(' ');
   }
