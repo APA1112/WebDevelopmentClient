@@ -25,33 +25,21 @@ var vidas = 6;
 var alphabet = "abcdefghijklmnñopqrstuvwxyz".split("");
 
 const main = function () {
-  createButtons();
+  var divBotones = document.getElementById("botones");
+  divBotones.innerHTML = crearBotones(alphabet);
   choosenWord = chooseWord(words.length, words);
+  console.log(document.getElementById("botones"));
   showWord();
 };
-//Funcion con la cual creamos los botones para jugar, ademas le añadimos
-//un eventListener para cuando lo pulsemos que se añadan al resgitro de letras
-const createButtons = function () {
-  var buttons = document.getElementById("botones");
-  for (var i = 0; i < alphabet.length; i++) {
-    var letter = alphabet[i];
-    var button = document.createElement("button");
-    button.textContent = letter;
-    button.addEventListener("click", function () {
-      wordHistorical(this.textContent);
-      if (testLetter(choosenWord, this.textContent)) {
-        console.log(`La palabra contiene la letra ${this.textContent}`);
-      } else {
-        checkLifes(vidas);
-        var imgShow = document.getElementById(vidas);
-        imgShow.classList.toggle("visible");
-        vidas--;
-      }
-    });
-    // Añadimos el botón al div
-    buttons.appendChild(button);
+//Funcion con la cual creamos los botones, le pasamos el array con las letras y devuelve un string con los botones
+function crearBotones(alphabet){
+  let botonesHTML = '';
+  for (let i = 0; i < alphabet.length; i++) {
+    const letra = alphabet[i];
+    botonesHTML += `<button>${letra}</button>`;
   }
-};
+  return botonesHTML;
+}
 //Elegimos una palabra aleatoria del array que pasamos como parametro (b) y de su longitud
 //la cual tambien pasamos como parametro (a)
 const chooseWord = function (a, b) {
@@ -81,15 +69,5 @@ const checkLifes = function (a) {
   }
 };
 
-const testLetter = function (choosenWord, a) {
-  var letters = choosenWord.split("");
-  var lettersToGuess = letters.length;
-  var guessedLetters = [];
-  console.log(letters);
-  if (letters.includes(a)) {
-    console.log(letters.indexOf(a));
-    return true;
-  }
-  return false;
-};
+
 window.addEventListener("DOMContentLoaded", main);
