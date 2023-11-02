@@ -21,8 +21,9 @@ const words = [
   "granada",
 ];
 var choosenWord;
-var letrasCorrectas;
+var letrasCorrectas=[];
 var vidas = 6;
+let acertadas = 0;
 var alphabet = "abcdefghijklmnñopqrstuvwxyz".split("");
 
 const main = function () {
@@ -59,21 +60,44 @@ const chooseWord = function (a, b) {
 //Mostramos la palabra aleatoria que generamos con la función chooseWord
 const showWord = function () {
   var word = document.getElementById("word");
-  word.textContent = letrasCorrectas + " " +choosenWord;
+  word.textContent = letrasCorrectas.join(' ');
 };
 
 function comprobarLetra(palabra, letra){
-  letrasCorrectas = [];
   palabra = palabra.toLowerCase();
   palabra = palabra.split('');
   letra = letra.toLowerCase();
+  let letraEncontrada = false;
+  
   for (let i = 0; i < palabra.length; i++){
     if (palabra[i] === letra) {
-      letrasCorrectas.push(letra);
-    } else {
-      letrasCorrectas.push('_');
+      letrasCorrectas[i] = letra;
+      acertadas++;
+      letraEncontrada = true;
+    } else if (letrasCorrectas[i] === undefined) {
+      letrasCorrectas[i] = '_';
     }
   }
+  document.getElementById('historial').textContent += letra + " ";
+  if(palabra.length === acertadas){
+    alert("Has ganado");
+    letrasCorrectas = [];
+    acertadas = 0;
+    choosenWord = chooseWord(words.length, words);
+    document.getElementById('historial').textContent = " ";
+  } 
+  if(!letraEncontrada)
+  {
+    vidas--;
+    console.log(vidas);
+    if (vidas===0){
+      alert ("Has perdido");
+      letrasCorrectas = [];
+      acertadas = 0;
+      choosenWord = chooseWord(words.length, words);
+      document.getElementById('historial').textContent = " ";
+    }
+  } 
   return letrasCorrectas;
 }
 window.addEventListener("DOMContentLoaded", main);
