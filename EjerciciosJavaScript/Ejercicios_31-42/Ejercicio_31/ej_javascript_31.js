@@ -21,6 +21,7 @@ const words = [
   "granada",
 ];
 var choosenWord;
+var letrasCorrectas;
 var vidas = 6;
 var alphabet = "abcdefghijklmnñopqrstuvwxyz".split("");
 
@@ -28,9 +29,18 @@ const main = function () {
   var divBotones = document.getElementById("botones");
   divBotones.innerHTML = crearBotones(alphabet);
   choosenWord = chooseWord(words.length, words);
-  console.log(document.getElementById("botones"));
   showWord();
+  document.getElementById('botones').addEventListener('click', function(event) {
+    const botonPulsado = event.target;
+    if (botonPulsado.tagName === 'BUTTON') {
+      let letra = botonPulsado.textContent;
+      let resultado = comprobarLetra(choosenWord, letra);
+      console.log(resultado);
+      showWord();
+    }
+  });
 };
+
 //Funcion con la cual creamos los botones, le pasamos el array con las letras y devuelve un string con los botones
 function crearBotones(alphabet){
   let botonesHTML = '';
@@ -46,28 +56,24 @@ const chooseWord = function (a, b) {
   var randomNum = Math.floor(Math.random() * a);
   return b[randomNum];
 };
-
 //Mostramos la palabra aleatoria que generamos con la función chooseWord
 const showWord = function () {
   var word = document.getElementById("word");
-  word.textContent = choosenWord;
-};
-//Esta función concatena lo que haya en el elemento con el id letras
-//junto al valor de la variable a
-const wordHistorical = function (a) {
-  var historical = document.getElementById("letras");
-  if (historical.textContent.includes(a)) {
-    historical.textContent = historical.textContent;
-  } else {
-    historical.textContent += a + " ";
-  }
-};
-//Comprobamos que la variable que le pasamos por parametro no sea cero
-const checkLifes = function (a) {
-  if (a == 0) {
-    alert("Has perdido");
-  }
+  word.textContent = letrasCorrectas + " " +choosenWord;
 };
 
-
+function comprobarLetra(palabra, letra){
+  letrasCorrectas = [];
+  palabra = palabra.toLowerCase();
+  palabra = palabra.split('');
+  letra = letra.toLowerCase();
+  for (let i = 0; i < palabra.length; i++){
+    if (palabra[i] === letra) {
+      letrasCorrectas.push(letra);
+    } else {
+      letrasCorrectas.push('_');
+    }
+  }
+  return letrasCorrectas;
+}
 window.addEventListener("DOMContentLoaded", main);
