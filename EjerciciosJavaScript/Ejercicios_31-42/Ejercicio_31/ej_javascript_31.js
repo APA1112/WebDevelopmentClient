@@ -83,14 +83,14 @@ function comprobarLetra(palabra, letra){
     }
   }
 
-  document.getElementById('historial').textContent += letra + " ";
+  document.getElementById('letras').textContent += letra + " ";
 
   if(palabra.join('') === letrasCorrectas.join('')){
     alert("Has ganado");
     letrasCorrectas = [];
     acertadas = 0;
     choosenWord = chooseWord(words.length, words);
-    document.getElementById('historial').textContent = " ";
+    document.getElementById('letras').textContent = " ";
   } 
   if(!letraEncontrada)
   {
@@ -101,7 +101,7 @@ function comprobarLetra(palabra, letra){
       letrasCorrectas = [];
       acertadas = 0;
       choosenWord = chooseWord(words.length, words);
-      document.getElementById('historial').textContent = "¿Qué letras has dicho?";
+      document.getElementById('letras').textContent = " ";
     }
   } 
   return letrasCorrectas;
