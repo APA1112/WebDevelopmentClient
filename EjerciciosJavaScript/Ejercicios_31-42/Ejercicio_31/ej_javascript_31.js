@@ -22,6 +22,7 @@ const words = [
 ];
 var choosenWord;
 var letrasCorrectas=[];
+var historial=[];
 var vidas = 5;
 let acertadas = 0;
 var alphabet = "abcdefghijklmnñopqrstuvwxyz".split("");
@@ -82,30 +83,38 @@ function comprobarLetra(palabra, letra){
       letrasCorrectas[i] = '_';
     }
   }
+  if (!historial.includes(letra)){
+    historial.push(letra);
+  }
+  document.getElementById('letras').textContent = historial.join(' ');
 
-  document.getElementById('letras').textContent += letra + " ";
-
-  if(palabra.join('') === letrasCorrectas.join('')){
+  if(palabra.join('') == letrasCorrectas.join('')){
     alert("Has ganado");
-    letrasCorrectas = [];
-    acertadas = 0;
-    choosenWord = chooseWord(words.length, words);
-    document.getElementById('letras').textContent = " ";
+    reiniciar();
   } 
   if(!letraEncontrada)
   {
-    document.getElementById(vidas).classList.toggle("visible");
+    document.getElementById("imagenes").innerHTML = `<img src="recursosAhorcado/${vidas}.png">`;
     vidas--;
     console.log(vidas);
     if (vidas===0){
       alert ("Has perdido");
-      letrasCorrectas = [];
-      acertadas = 0;
-      choosenWord = chooseWord(words.length, words);
-      document.getElementById('letras').textContent = " ";
-      vidas = 6;
+      reiniciar();
     }
   } 
   return letrasCorrectas;
+}
+
+function reiniciar(){
+  letrasCorrectas = [];
+  acertadas = 0;
+  historial = [];
+  choosenWord = chooseWord(words.length, words);
+  document.getElementById('letras').textContent = " ";
+  vidas = 6;
+  for(let i = 0; i<6; i++){
+    var imagen = document.getElementById(i);
+    imagen.classList.remove('visible');
+  }
 }
 window.addEventListener("DOMContentLoaded", main);
