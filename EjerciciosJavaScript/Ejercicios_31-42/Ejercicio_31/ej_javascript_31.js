@@ -22,7 +22,7 @@ const words = [
 ];
 var choosenWord;
 var letrasCorrectas=[];
-var vidas = 6;
+var vidas = 5;
 let acertadas = 0;
 var alphabet = "abcdefghijklmnñopqrstuvwxyz".split("");
 
@@ -94,6 +94,7 @@ function comprobarLetra(palabra, letra){
   } 
   if(!letraEncontrada)
   {
+    document.getElementById(vidas).classList.toggle("visible");
     vidas--;
     console.log(vidas);
     if (vidas===0){
@@ -102,6 +103,7 @@ function comprobarLetra(palabra, letra){
       acertadas = 0;
       choosenWord = chooseWord(words.length, words);
       document.getElementById('letras').textContent = " ";
+      vidas = 6;
     }
   } 
   return letrasCorrectas;
