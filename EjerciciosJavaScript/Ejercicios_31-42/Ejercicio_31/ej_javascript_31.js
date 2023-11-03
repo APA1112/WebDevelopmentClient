@@ -32,6 +32,7 @@ const main = function () {
   var divBotones = document.getElementById("botones");
   divBotones.innerHTML = crearBotones(alphabet);
   choosenWord = chooseWord(words.length, words);
+  letrasCorrectas = Array(choosenWord.length).fill('_');
   showWord();
   document
     .getElementById("botones")
@@ -82,14 +83,16 @@ function comprobarLetra(palabra, letra) {
   for (let i = 0; i < palabra.length; i++) {
     if (palabra[i] === letra) {
       letrasCorrectas[i] = letra;
-      acertadas++;
       letraEncontrada = true;
-    } else if (letrasCorrectas[i] === undefined) {
-      letrasCorrectas[i] = "_";
     }
   }
+  
   if (!historial.includes(letra)) {
     historial.push(letra);
+  } else {
+    alert("Ya has dicho esta letra");
+    fallos++;
+    vidas--;
   }
 
   document.getElementById("letras").textContent = historial.join(" ");
@@ -116,10 +119,10 @@ function comprobarLetra(palabra, letra) {
 }
 //Con la funcion reiniciar ponemos al valor de origen a todas las variables
 function reiniciar() {
-  letrasCorrectas = [];
   acertadas = 0;
   historial = [];
   choosenWord = chooseWord(words.length, words);
+  letrasCorrectas = Array(choosenWord.length).fill('_');
   document.getElementById("letras").textContent = " ";
   vidas = 6;
   document.getElementById("imagenes").innerHTML = "";
