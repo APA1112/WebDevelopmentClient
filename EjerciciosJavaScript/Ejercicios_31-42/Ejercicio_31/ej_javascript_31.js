@@ -32,7 +32,7 @@ const main = function () {
   var divBotones = document.getElementById("botones");
   divBotones.innerHTML = crearBotones(alphabet);
   choosenWord = chooseWord(words.length, words);
-  letrasCorrectas = Array(choosenWord.length).fill('_');
+  letrasCorrectas = Array(choosenWord.length).fill("_");
   showWord();
   document
     .getElementById("botones")
@@ -86,7 +86,7 @@ function comprobarLetra(palabra, letra) {
       letraEncontrada = true;
     }
   }
-  
+
   if (!historial.includes(letra)) {
     historial.push(letra);
   } else {
@@ -97,11 +97,10 @@ function comprobarLetra(palabra, letra) {
 
   document.getElementById("letras").textContent = historial.join(" ");
 
-  if (palabra.join("") == letrasCorrectas.join("")) {
-    alert("Has ganado");
-    reiniciar();
-  }
-
+  return letrasEncontrada;
+}
+//Funcion a la que pasamos el resultado de comprobar letra, true o false
+function jugar(letraEncontrada) {
   if (!letraEncontrada) {
     console.log("No esta la letra");
     document.getElementById(
@@ -114,15 +113,20 @@ function comprobarLetra(palabra, letra) {
       alert("Has perdido");
       reiniciar();
     }
+  } else {
+    if (palabra.join("") == letrasCorrectas.join("")) {
+      alert("Has ganado");
+      reiniciar();
+    }
   }
-  return letrasCorrectas;
 }
+
 //Con la funcion reiniciar ponemos al valor de origen a todas las variables
 function reiniciar() {
   acertadas = 0;
   historial = [];
   choosenWord = chooseWord(words.length, words);
-  letrasCorrectas = Array(choosenWord.length).fill('_');
+  letrasCorrectas = Array(choosenWord.length).fill("_");
   document.getElementById("letras").textContent = " ";
   vidas = 6;
   document.getElementById("imagenes").innerHTML = "";
