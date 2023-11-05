@@ -57,27 +57,57 @@ function main() {
   selectProvincias.innerHTML = cadenaProvincias;
 
   document.getElementById("name").addEventListener("blur", function(){
-    comprobarNombre(this.value)
+    if(!comprobarNombre(this.value)){
+        document.getElementById("name").classList.add("error");
+        document.getElementById("name").textContent = "Dato no válido";
+    } else {
+        document.getElementById("name").classList.remove("error");
+    }
   });
 
   document.getElementById("direction").addEventListener("blur", function(){
-    comprobarDireccion(this.value)
+    if(!comprobarDireccion(this.value)){
+        document.getElementById("direction").classList.add("error");
+        document.getElementById("direction").textContent = "Dato no válido";
+    } else {
+        document.getElementById("direction").classList.remove("error");
+    }
   });
 
   document.getElementById("tel").addEventListener("blur", function(){
-    comprobarTelefono(this.value)
+    if(!comprobarTelefono(this.value)){
+        document.getElementById("tel").classList.add("error");
+        document.getElementById("tel").textContent = "Dato no válido";
+    } else {
+        document.getElementById("tel").classList.remove("error");
+    }
   });
 
   document.getElementById("dni").addEventListener("blur", function(){
-    comprobarDNI(this.value)
+    if(!comprobarDNI(this.value)){
+        document.getElementById("dni").classList.add("error");
+        document.getElementById("dni").textContent = "Dato no válido";
+    } else {
+        document.getElementById("dni").classList.remove("error");
+    }
   });
 
   document.getElementById("email").addEventListener("blur", function(){
-    comprobarEmail(this.value)
+    if(!comprobarEmail(this.value)){
+        document.getElementById("email").classList.add("error");
+        document.getElementById("email").textContent = "Dato no válido";
+    } else {
+        document.getElementById("email").classList.remove("error");
+    }
   });
   
   document.getElementById("localidad").addEventListener("blur", function(){
-    comprobarLocalidad(this.value)
+    if(!comprobarLocalidad(this.value)){
+        document.getElementById("localidad").classList.add("error");
+        document.getElementById("localidad").textContent = "Dato no válido";
+    } else {
+        document.getElementById("localidad").classList.remove("error");
+    }
   });
 }
 

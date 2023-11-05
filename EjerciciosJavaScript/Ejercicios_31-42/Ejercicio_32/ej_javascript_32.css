@@ -1,9 +1,7 @@
-body{
-    background-color: greenyellow;
+body {
+  background-color: greenyellow;
 }
-input{
-    display: inline;
-}
-button{
-    display: inline-block;
+.error {
+  border: 2px solid #ff0000;
+  background-color: #ffcccc;
 }
