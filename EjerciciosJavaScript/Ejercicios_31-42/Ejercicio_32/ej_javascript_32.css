@@ -1,0 +1,9 @@
+body{
+    background-color: greenyellow;
+}
+input{
+    display: inline;
+}
+button{
+    display: inline-block;
+}
