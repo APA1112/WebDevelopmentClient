@@ -63,6 +63,7 @@ function main() {
         document.getElementById("name").placeholder = "Dato no válido";
     } else {
         document.getElementById("name").classList.remove("error");
+        document.getElementById("name").classList.add("ok");
     }
   });
 
@@ -73,6 +74,7 @@ function main() {
         document.getElementById("direction").placeholder = "Dato no válido";
     } else {
         document.getElementById("direction").classList.remove("error");
+        document.getElementById("direction").classList.add("ok");
     }
   });
 
@@ -83,6 +85,7 @@ function main() {
         document.getElementById("tel").placeholder = "Dato no válido";
     } else {
         document.getElementById("tel").classList.remove("error");
+        document.getElementById("tel").classList.add("ok");
     }
   });
 
@@ -93,6 +96,8 @@ function main() {
         document.getElementById("dni").placeholder = "Dato no válido";
     } else {
         document.getElementById("dni").classList.remove("error");
+        document.getElementById("dni").classList.add("ok");
+
     }
   });
 
@@ -103,6 +108,7 @@ function main() {
         document.getElementById("email").placeholder = "Dato no válido";
     } else {
         document.getElementById("email").classList.remove("error");
+        document.getElementById("email").classList.add("ok");
     }
   });
   
@@ -113,14 +119,15 @@ function main() {
         document.getElementById("localidad").placeholder = "Dato no válido";
     } else {
         document.getElementById("localidad").classList.remove("error");
+        document.getElementById("localidad").classList.add("ok");
     }
   });
 
-  let x = document.querySelectorAll(".error");
-  if (x.length > 0 ){
-    document.getElementById("enviar").disabled=true;
-  } else {
+  let x = document.querySelectorAll(".ok");
+  if (x.length === 6 ){
     document.getElementById("enviar").disabled=false;
+  } else {
+    document.getElementById("enviar").disabled=true;
   }
 }
 
