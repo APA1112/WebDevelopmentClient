@@ -59,7 +59,8 @@ function main() {
   document.getElementById("name").addEventListener("blur", function(){
     if(!comprobarNombre(this.value)){
         document.getElementById("name").classList.add("error");
-        document.getElementById("name").textContent = "Dato no válido";
+        document.getElementById("name").value = "";
+        document.getElementById("name").placeholder = "Dato no válido";
     } else {
         document.getElementById("name").classList.remove("error");
     }
@@ -68,7 +69,8 @@ function main() {
   document.getElementById("direction").addEventListener("blur", function(){
     if(!comprobarDireccion(this.value)){
         document.getElementById("direction").classList.add("error");
-        document.getElementById("direction").textContent = "Dato no válido";
+        document.getElementById("direction").value = "";
+        document.getElementById("direction").placeholder = "Dato no válido";
     } else {
         document.getElementById("direction").classList.remove("error");
     }
@@ -77,7 +79,8 @@ function main() {
   document.getElementById("tel").addEventListener("blur", function(){
     if(!comprobarTelefono(this.value)){
         document.getElementById("tel").classList.add("error");
-        document.getElementById("tel").textContent = "Dato no válido";
+        document.getElementById("tel").value = "";
+        document.getElementById("tel").placeholder = "Dato no válido";
     } else {
         document.getElementById("tel").classList.remove("error");
     }
@@ -86,7 +89,8 @@ function main() {
   document.getElementById("dni").addEventListener("blur", function(){
     if(!comprobarDNI(this.value)){
         document.getElementById("dni").classList.add("error");
-        document.getElementById("dni").textContent = "Dato no válido";
+        document.getElementById("dni").value = "";
+        document.getElementById("dni").placeholder = "Dato no válido";
     } else {
         document.getElementById("dni").classList.remove("error");
     }
@@ -95,7 +99,8 @@ function main() {
   document.getElementById("email").addEventListener("blur", function(){
     if(!comprobarEmail(this.value)){
         document.getElementById("email").classList.add("error");
-        document.getElementById("email").textContent = "Dato no válido";
+        document.getElementById("email").value = "";
+        document.getElementById("email").placeholder = "Dato no válido";
     } else {
         document.getElementById("email").classList.remove("error");
     }
@@ -104,7 +109,8 @@ function main() {
   document.getElementById("localidad").addEventListener("blur", function(){
     if(!comprobarLocalidad(this.value)){
         document.getElementById("localidad").classList.add("error");
-        document.getElementById("localidad").textContent = "Dato no válido";
+        document.getElementById("localidad").value = "";
+        document.getElementById("localidad").placeholder = "Dato no válido";
     } else {
         document.getElementById("localidad").classList.remove("error");
     }
