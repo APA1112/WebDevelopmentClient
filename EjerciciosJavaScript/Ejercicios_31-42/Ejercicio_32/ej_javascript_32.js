@@ -116,7 +116,7 @@ function main() {
     }
   });
 
-  x = document.querySelectorAll(".error");
+  let x = document.querySelectorAll(".error");
   if (x.length > 0 ){
     document.getElementById("enviar").disabled=true;
   } else {
