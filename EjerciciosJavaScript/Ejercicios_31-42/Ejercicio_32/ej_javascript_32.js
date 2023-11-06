@@ -115,6 +115,13 @@ function main() {
         document.getElementById("localidad").classList.remove("error");
     }
   });
+
+  x = document.querySelectorAll(".error");
+  if (x.length > 0 ){
+    document.getElementById("enviar").disabled=true;
+  } else {
+    document.getElementById("enviar").disabled=false;
+  }
 }
 
 function comprobarNombre(nombre){
@@ -160,7 +167,7 @@ function comprobarLocalidad (localidad){
     console.log(expresionRegular.test(localidad));
     return expresionRegular.test(localidad);
 }
-
+//Pasar un array con los values y otro con el texto que vamos a mostrar
 function generarSelect(provinciasArray) {
   let cadenaProvincias;
   for (const provincia of provinciasArray) {
