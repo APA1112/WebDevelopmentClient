@@ -1,3 +1,5 @@
+
+
 const provinciasEspana = [
   "Álava",
   "Albacete",
@@ -50,7 +52,6 @@ const provinciasEspana = [
   "Zamora",
   "Zaragoza",
 ];
-
 function main() {
   let x = document.querySelectorAll(".ok");
   const selectProvincias = document.getElementById("provincias");
@@ -130,6 +131,8 @@ function main() {
   } else {
     document.getElementById("enviar").disabled=true;
   }
+
+
 }
 
 function comprobarNombre(nombre){
