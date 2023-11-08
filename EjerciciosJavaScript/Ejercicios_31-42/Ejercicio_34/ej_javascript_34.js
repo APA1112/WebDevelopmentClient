@@ -175,9 +175,10 @@ function comprobarLocalidad (localidad){
     console.log(expresionRegular.test(localidad));
     return expresionRegular.test(localidad);
 }
-//Pasar un array con los values y otro con el texto que vamos a mostrar
+//Mejora: pasar un array con los values y otro con el texto que vamos a mostrar
 function generarSelect(provinciasArray) {
   let cadenaProvincias;
+  if(!Array.isArray(provinciasArray)) return "Debe de ser un array";
   for (const provincia of provinciasArray) {
     cadenaProvincias += `<option value="${provincia}">${provincia}</option>`;
   }
