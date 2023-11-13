@@ -130,8 +130,6 @@ function main() {
   }
 }
 
-setInterval(main, 10);
-
 function comprobarNombre(nombre) {
   const expresionRegular = /^[A-Za-zÁáÉéÍíÓóÚúÜüñÑ\s\'-]+$/;
   console.log(expresionRegular.test(nombre));
