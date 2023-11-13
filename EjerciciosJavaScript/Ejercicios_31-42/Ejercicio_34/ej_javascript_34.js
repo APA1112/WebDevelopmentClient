@@ -122,16 +122,6 @@ function main() {
     }
   });
 
-  document.getElementById("limpiar").addEventListener("click", function () {
-    document.getElementById("enviar").disabled = true;
-    document.getElementById("name").value = "";
-    document.getElementById("direction").value = "";
-    document.getElementById("tel").value = "";
-    document.getElementById("dni").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("localidad").value = "";
-  });
-
   if (x.length === 6) {
     document.getElementById("enviar").disabled = false;
     console.log("Boton activo");
