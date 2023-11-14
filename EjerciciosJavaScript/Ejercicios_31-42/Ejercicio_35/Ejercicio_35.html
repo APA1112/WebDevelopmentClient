@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Ejercicio_35.css" />
+    <script src="Ejercicio_35.js"></script>
+    <title>Inscripción</title>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <legend>Datos de Inscripción</legend>
+        <label for="name">Nombre: <input type="text" id="name" /></label>
+        <label for="alias">Alias: <input type="text" id="alias" /></label>
+        <label for="password">Contraseña: <input type="password" id="password"/></label>
+        <label for="repPassword">Repite contraseña: <input type="password" id="repPassword"/></label>
+        <div>
+          Sexo:
+          <label for="male">(M) <input type="radio" name="sexo" checked/></label>
+          <label for="female">(F) <input type="radio" name="sexo" /></label>
+        </div>
+        <label for="fechNacimiento">Año nacimiento:
+            <select name="anioNac" id="fechNacimiento"></select>
+        </label>
+        Aficiones:
+        <div id="aficiones"></div>
+        *Todos los campos son obligatorios
+        <div>
+          <button type="submit" disabled>Enviar</button>
+          <button type="reset">Limpiar</button>
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>

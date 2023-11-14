@@ -1,0 +1,14 @@
+body {
+  background-color: greenyellow;
+}
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+#aficiones {
+  display: flex;
+}
+.error {
+  border: 2px solid #ff0000;
+  background-color: #ffcccc;
+}
