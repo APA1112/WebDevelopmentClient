@@ -14,6 +14,8 @@ function main() {
   let arrayAños = generarAños(1934);
   document.getElementById("fechNacimiento").innerHTML = generarSelect(arrayAños);
   document.getElementById("aficiones").innerHTML = generarCheck(aficiones);
+  let cmpNombre = document.getElementById("name");
+  cmpNombre.addEventListener('change', comprobarCampo(cmpNombre.textContent, expresionNombre));
 }
 
 function generarSelect(array) {
@@ -39,12 +41,12 @@ function generarAños(añoInicio, añoFin = new Date().getFullYear()) {
   return resultado;
 }
 
-function comprobarCampo(contenido, expresion) {
-  if (contenido.length === 0 ){
+function comprobarCampo(cadena, expresion) {
+  if (cadena.length === 0 ){
     alert ("No puede haber campos vacios");
     return false;
   }
-  return expresion.test(contenido);
+  return expresion.test(cadena);
 }
 
 window.addEventListener("DOMContentLoaded", main);
