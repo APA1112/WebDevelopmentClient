@@ -40,6 +40,10 @@ function generarAños(añoInicio, añoFin = new Date().getFullYear()) {
 }
 
 function comprobarCampo(contenido, expresion) {
+  if (contenido.length === 0 ){
+    alert ("No puede haber campos vacios");
+    return false;
+  }
   return expresion.test(contenido);
 }
 
