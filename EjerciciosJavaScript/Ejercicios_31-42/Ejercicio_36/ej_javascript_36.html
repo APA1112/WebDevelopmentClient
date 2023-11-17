@@ -7,5 +7,30 @@
     <script src="ej_javascript_36.js"></script>
     <title>Incripción</title>
   </head>
-  <body></body>
+  <body>
+    <form action="" id="formulario">
+      <fieldset>
+        <legend>Datos de Inscripción</legend>
+        <label for="name">Nombre: <input type="text" id="name" /></label>
+        <label for="alias">Alias: <input type="text" id="alias" /></label>
+        <label for="password">Contraseña: <input type="password" id="password"/></label>
+        <label for="repPassword">Repite contraseña: <input type="password" id="repPassword"/></label>
+        <div>
+          Sexo:
+          <label for="male">(M) <input type="radio" name="sexo" checked/></label>
+          <label for="female">(F) <input type="radio" name="sexo" /></label>
+        </div>
+        <label for="fechNacimiento">Año nacimiento:
+            <select name="anioNac" id="fechNacimiento"></select>
+        </label>
+        Aficiones:
+        <div id="aficiones"></div>
+        *Todos los campos son obligatorios
+        <div>
+          <button type="submit" disabled>Enviar</button>
+          <button type="reset">Limpiar</button>
+        </div>
+      </fieldset>
+    </form>
+  </body>
 </html>
