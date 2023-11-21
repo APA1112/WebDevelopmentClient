@@ -28,3 +28,7 @@ body {
 .articulos aside{
     width: 25%;
 }
+.articulos img{
+    width: 25%;
+    height: auto;
+}
