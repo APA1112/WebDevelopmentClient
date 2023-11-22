@@ -96,17 +96,24 @@ const puesProvincias = {
   ],
 };
 function main() {
-    document.getElementById('opciones').innerHTML = crearCadenaCheckbox(puesProvincias);
+    crearCadenaCheckbox(puesProvincias, "opciones");
+    mostrarEscudo("Jaen", "escudo");
 }
-//crearCadenaCheckbox es una funcion que recive un array asociativo como parametro
-//y devuelve una cadena con tantos checkbox como claves distintas tenga
-function crearCadenaCheckbox(arrayAsociativo) {
-  let cadena = "";
+//crearCadenaCheckbox es una funcion que recive un array asociativo como parametro 
+//junto al id que va a contener los checkbox
+//y los genera
+function crearCadenaCheckbox(arrayAsociativo, idContenedor) {
+  let contenedor = document.getElementById(idContenedor);
   let claves = Object.keys(arrayAsociativo);
   for (let i=0; i<claves.length; i++){
-    cadena += `<input type="checkbox" name="provincia" value="${claves[i]}">${claves[i]}`;
+    input = document.createElement("input");
+    input.type = "checkbox";
+    input.name = "provincia";
+    input.value = claves[i];
+    contenedor.appendChild(input);
+    //cadena += `<input type="checkbox" name="provincia" value="${claves[i]}">${claves[i]}`;
   }
-  return cadena;
+  //return cadena;
 }
 //mostrarEscudo es una funcion a la cual le pasamos un string y un id y nos muestra
 //modifica el src para mostrar la imagen que contenga el string

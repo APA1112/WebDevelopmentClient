@@ -10,25 +10,37 @@ body {
   align-items: center;
   justify-content: center;
 }
-.container{
-    background-color: bisque;
+.container {
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  padding: 1rem;
+  border-radius: 5px;
+}
+.articulos {
+  display: flex;
+  flex-direction: row;
+}
+.articulos article {
+  width: 75%;
+}
+.articulos aside {
+  width: 25%;
+}
+.articulos img {
+  width: 25%;
+  height: auto;
+}
+fieldset {
+  display: flex;
+  flex-direction: row;
+}
+#izq{
+    width: 65%;
+}
+#dch{
     display: flex;
-    flex-direction: column;
-    width: 75%;
-    padding: 1rem;
-    border-radius: 5px;
-}
-.articulos{
-    display: flex;
-    flex-direction: row;
-}
-.articulos article{
-    width: 75%;
-}
-.articulos aside{
-    width: 25%;
-}
-.articulos img{
-    width: 25%;
-    height: auto;
+    width: 35%;
+    justify-content: center;
 }
