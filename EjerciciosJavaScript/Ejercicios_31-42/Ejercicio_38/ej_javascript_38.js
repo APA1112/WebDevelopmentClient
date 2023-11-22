@@ -1,4 +1,4 @@
-const pueblosProvincias = {
+const puesProvincias = {
   Jaen: [
     "Jaen",
     "Linares",
@@ -96,19 +96,26 @@ const pueblosProvincias = {
   ],
 };
 function main() {
-    crearCheckbox(pueblosProvincias, "opciones");
-    mostrarEscudo("Malaga", "escudo");
+    document.getElementById('opciones').innerHTML = crearCadenaCheckbox(puesProvincias);
+    mostrarEscudo("Jaen", "escudo");
 }
-//crearCadenaCheckbox es una funcion que recive una cadena como parametro 
-//ygenera el checox con su label
-function crearCheckbox(cadena) {}
+//crearCadenaCheckbox es una funcion que recive un array asociativo como parametro
+//y devuelve una cadena con tantos checkbox como claves distintas tenga
+function crearCadenaCheckbox(arrayAsociativo) {
+  let cadena = "";
+  let claves = Object.keys(arrayAsociativo);
+  for (let i=0; i<claves.length; i++){
+    cadena += `<input type="checkbox" name="provincia" value="${claves[i]}">${claves[i]}`;
+  }
+  return cadena;
+}
 //mostrarEscudo es una funcion a la cual le pasamos un string y un id y nos muestra
 //modifica el src para mostrar la imagen que contenga el string
 function mostrarEscudo(provincia, idImagen){
     document.getElementById(idImagen).src = `./Escudos/${provincia}.png`;
 }
 //buscarElemento es una funcion que recibe como parametros un elemento y arrayAsociativo
-//y devuelve la primera clave que contenga dicho elemento
+//y devuelve la clave que contenga dicho elemento, si no hay ninguna devuelve null.
 function buscarElemento(cadena, arrayAsociativo){
     let claves = Object.keys(arrayAsociativo);
     for (let i=0; i<claves.length; i++){
