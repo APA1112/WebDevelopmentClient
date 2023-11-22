@@ -108,7 +108,7 @@ function mostrarEscudo(provincia, idImagen){
     document.getElementById(idImagen).src = `./Escudos/${provincia}.png`;
 }
 //buscarElemento es una funcion que recibe como parametros un elemento y arrayAsociativo
-//y devuelve la clave que contenga dicho elemento, si no hay ninguna devuelve null.
+//y devuelve la primera clave que contenga dicho elemento
 function buscarElemento(cadena, arrayAsociativo){
     let claves = Object.keys(arrayAsociativo);
     for (let i=0; i<claves.length; i++){
