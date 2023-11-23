@@ -121,7 +121,7 @@ function crearCadenaCheckbox(arrayAsociativo) {
 //mostrarEscudo es una funcion a la cual le pasamos un string y un id y nos muestra
 //modifica el src para mostrar la imagen que contenga el string
 function mostrarEscudo(provincia, idImagen) {
-  document.getElementById(idImagen).src = `../Escudos/${provincia}.png`;
+  document.getElementById(idImagen).src = `./Escudos/${provincia}.png`;
 }
 //buscarElemento es una funcion que recibe como parametros un elemento y arrayAsociativo
 //y devuelve la primera clave que contenga dicho elemento, si no hay ninguna devuelve null.
