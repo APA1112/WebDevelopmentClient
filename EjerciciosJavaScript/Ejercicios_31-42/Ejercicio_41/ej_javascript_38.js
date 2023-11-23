@@ -149,7 +149,7 @@ function marcarCheckbox(provincia) {
   }
 }
 //limitarSeleccion es una funcion que se encarga de con un variable global (Object) comprobar la cantidad
-//de pueblos que hemos metido por provincia, una vez que llegue a dos, pondremos el checkbox disabled
+//de pueblos que hemos metido por provincia, una vez que llegue a 10, mostrará un mensaje ("Enhorabuena")
 function limitarSeleccion() {
   let checkboxes = document.querySelectorAll('input[type="checkbox"]');
   checkboxes.forEach((checkbox) => {
@@ -160,11 +160,9 @@ function limitarSeleccion() {
       } else {
         pueblosPorProvincia[provincia]++;
       }
-      if (pueblosPorProvincia[provincia] >= 2) {
-        checkbox.disabled = true;
+      if (pueblosPorProvincia[provincia] >= 10) {
+        alert(`Enhorabuena has introducido 10 provincias de ${provincia}`);
       }
-    } else {
-      checkbox.disabled = false;
     }
   });
 }
