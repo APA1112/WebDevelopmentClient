@@ -97,11 +97,10 @@ const pueblosProvincias = {
 };
 function main() {
   let pueblo;
-  document.getElementById("opciones").innerHTML =
-    crearCadenaCheckbox(pueblosProvincias);
+  document.getElementById("opciones").innerHTML = crearCadenaCheckbox(pueblosProvincias);
   let puebloInput = document.getElementById("town");
   puebloInput.addEventListener("change", function () {
-    pueblo = puebloInput.value; // Asignar el valor del input a la variable 'pueblo'
+    pueblo = puebloInput.value;
     let provincia = buscarElemento(pueblo, pueblosProvincias);
     console.log(provincia);
     mostrarEscudo(provincia, "escudo");
@@ -146,4 +145,7 @@ function marcarCheckbox(provincia) {
     }
   }
 }
+//prepararArrayBuscar es una funcion que genera un array asociativo con las
+//claves que se corresponden con el value de los checkbox marcados.
+function prepararArrayBuscar(arrayAsociativo){}
 window.addEventListener("DOMContentLoaded", main);
