@@ -107,11 +107,11 @@ function main() {
     marcarCheckbox(provincia);
   });
 }
-//crearCadenaCheckbox es una funcion que recive un array asociativo como parametro
+//crearCadenaCheckbox es una funcion que recive un objeto como parametro
 //y devuelve una cadena con tantos checkbox como claves distintas tenga
-function crearCadenaCheckbox(arrayAsociativo) {
+function crearCadenaCheckbox(objeto) {
   let cadena = "";
-  let claves = Object.keys(arrayAsociativo);
+  let claves = Object.keys(objeto);
   for (let i = 0; i < claves.length; i++) {
     cadena += `<input type="checkbox" name="provincia" value="${claves[i]}">${claves[i]}`;
   }
@@ -122,12 +122,12 @@ function crearCadenaCheckbox(arrayAsociativo) {
 function mostrarEscudo(provincia, idImagen) {
   document.getElementById(idImagen).src = `../Escudos/${provincia}.png`;
 }
-//buscarElemento es una funcion que recibe como parametros un elemento y arrayAsociativo
+//buscarElemento es una funcion que recibe como parametros un elemento y un objeto
 //y devuelve la primera clave que contenga dicho elemento, si no hay ninguna devuelve null.
-function buscarElemento(cadena, arrayAsociativo) {
-  let claves = Object.keys(arrayAsociativo);
+function buscarElemento(cadena, objeto) {
+  let claves = Object.keys(objeto);
   for (let i = 0; i < claves.length; i++) {
-    if (arrayAsociativo[claves[i]].includes(cadena)) {
+    if (objeto[claves[i]].includes(cadena)) {
       return claves[i];
     }
   }
@@ -145,7 +145,7 @@ function marcarCheckbox(provincia) {
     }
   }
 }
-//prepararArrayBuscar es una funcion que genera un array asociativo con las
+//prepararArrayBuscar es una funcion que genera un objeto con las
 //claves que se corresponden con el value de los checkbox marcados.
-function prepararArrayBuscar(arrayAsociativo){}
+function prepararArrayBuscar(objeto){}
 window.addEventListener("DOMContentLoaded", main);
