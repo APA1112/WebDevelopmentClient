@@ -1,12 +1,17 @@
-let cadenaDatos =
-  "1,2,3,4,5,6,7,8,9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 1,2,3,4,5,6,7,8,9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 1,2,3,4,5,6,7,8, 47, 48, 49";
 function main() {
   x = document.getElementsByTagName("td");
   console.log(x);
   let tabla = crearTabla(7, 7);
-  let datos = prepararDatos(cadenaDatos, ",");
+  let datos = crearDatos(1,49);
   rellenarTabla(tabla, datos);
 }
+ function crearDatos(inicio, fin){
+  let datos = [];
+  for (let i = inicio; i<=fin; i++){
+    datos.push(i);
+  }
+  return datos;
+ }
 //Le pasamos a la funcion el numero de filas y columnas que queremos que tenga la tabla y nos la crea
 //usando los metodos del createElement
 function crearTabla(filas, columnas) {
