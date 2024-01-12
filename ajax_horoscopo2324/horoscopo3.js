@@ -15,11 +15,11 @@ function main() {
   nodosBotones.forEach((ele, ind)=>{
     console.log(ele, ind);
     ele.addEventListener("click", function(){
-        buscarInfo(ele, ind);
+        buscarInf(ele, ind);
     });
   });
 }
 
-function buscarInfo(e, i) {
+function buscarInf(e, i) {
   console.log(e, i);
 }
