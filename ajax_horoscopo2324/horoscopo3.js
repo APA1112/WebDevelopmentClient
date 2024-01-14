@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", main);
 
 function main() {
-  const nodosBotones = document.querySelectorAll("asside button");
+  const nodosBotones = document.querySelectorAll("aside button");
 
   nodosBotones.forEach((ele, ind) => (ele.id = ind)); //Añadimos id a los botones
   nodosBotones.forEach((ele, ind) => {
@@ -14,13 +14,10 @@ function main() {
 
 function buscarInf(e) {
   console.log(e.target.textContent, e.target.id);
-
   var oReq = new XMLHttpRequest();
   oReq.addEventListener("load", reqListener);
   oReq.open(
-    "GET",
-    `http://localhost/cliente/db_ajax.php?numero=${e.target.id}`
-  );
+    "GET", `http://localhost/cliente/db_ajax.php?numero=${e.target.id}`);
   oReq.send();
 }
 
@@ -33,3 +30,9 @@ function reqListener() {
     nodoInsertar.innerHTML += `${property}: ${datos[property]}`;
   }
 }
+
+function cambiarImagen(){}
+
+function cambiarTitulo(){}
+
+function quitarTildes(){}
