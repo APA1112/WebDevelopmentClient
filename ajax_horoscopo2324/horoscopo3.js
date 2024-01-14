@@ -16,8 +16,7 @@ function buscarInf(e) {
   console.log(e.target.textContent, e.target.id);
   var oReq = new XMLHttpRequest();
   oReq.addEventListener("load", reqListener);
-  oReq.open(
-    "GET", `http://localhost/cliente/db_ajax.php?numero=${e.target.id}`);
+  oReq.open("GET", `http://localhost/cliente/db_ajax.php?numero=${e.target.id}`);
   oReq.send();
 }
 
@@ -29,10 +28,25 @@ function reqListener() {
   for (const property in datos) {
     nodoInsertar.innerHTML += `${property}: ${datos[property]}`;
   }
+  cambiarImagen(datos.nombre);
+  cambiarTitulo(datos.nombre);
 }
 
-function cambiarImagen(){}
+function cambiarImagen(nombreImagen){
+  const nodoImagen = document.querySelectorAll("figure img");
+  let nombreSinTildes = quitarTildes(nombreImagen);
+  nodoImagen[0].src = `imagenes/${nombreSinTildes}.jpg`;
+}
 
-function cambiarTitulo(){}
+function cambiarTitulo(nombre){
+  const nodoTitulo = document.getElementById("idcab");
+  nodoTitulo.innerHTML = "";
+  nodoTitulo.innerHTML = `Signo ${nombre}`;
+}
 
-function quitarTildes(){}
+function quitarTildes(cadena){
+    // Reemplazar letras con tilde por letras sin tilde
+    var resultado = cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+  return resultado;
+}
