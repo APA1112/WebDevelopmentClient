@@ -13,10 +13,10 @@ function main() {
 }
 
 function buscarInf(e) {
-  console.log(e.target.textContent, e.target.id);
+  console.log(e, e.id);
   var oReq = new XMLHttpRequest();
   oReq.addEventListener("load", reqListener);
-  oReq.open("GET", `http://localhost/cliente/db_ajax.php?numero=${e.target.id}`);
+  oReq.open("GET", `http://localhost/cliente/db_ajax.php?numero=${e.id}`);
   oReq.send();
 }
 
