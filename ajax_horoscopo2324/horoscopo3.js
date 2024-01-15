@@ -16,7 +16,7 @@ function buscarInf(e) {
   console.log(e, e.id);
   var oReq = new XMLHttpRequest();
   oReq.addEventListener("load", reqListener);
-  oReq.open("GET", `http://localhost/cliente/db_ajax.php?numero=${e.id}`);
+  oReq.open("GET", `http://localhost/cliente/bd_ajax.php?numero=${e.id}`);
   oReq.send();
 }
 
@@ -36,6 +36,8 @@ function cambiarImagen(nombreImagen){
   const nodoImagen = document.querySelectorAll("figure img");
   let nombreSinTildes = quitarTildes(nombreImagen);
   nodoImagen[0].src = `imagenes/${nombreSinTildes}.jpg`;
+  const nodoPieImagen = document.getElementById("figuno");
+  nodoPieImagen.innerHTML = `${nombreImagen}`;
 }
 
 function cambiarTitulo(nombre){
