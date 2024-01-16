@@ -16,13 +16,23 @@ function buscarInf(e) {
   console.log(e, e.id);
   var oReq = new XMLHttpRequest();
   oReq.addEventListener("load", reqListener);
-  oReq.open("GET", `http://localhost/cliente/bd_ajax.php?numero=${e.id}`);
-  oReq.send();
+  // oReq.open("GET", `http://localhost/cliente/bd_ajax.php?numero=${e.id}`);
+  // oReq.send();
+
+  //CON METODO POST
+  // let datos = new FormData();
+  // datos.append("numero", `${e.id}`);
+  // oReq.send(datos);
+
+  // CON METODO FETCH
+  fetch(`http://localhost/cliente/bd_ajax.php?numero=${e.id}`)
+    .then((response) => response.json())
+    .then((json) => reqListener(json));
 }
 
-function reqListener() {
-  let datos = JSON.parse(this.responseText);
-  console.log(datos);
+function reqListener(datos) {
+  // let datos = JSON.parse(this.responseText);
+  // console.log(datos);
   nodoInsertar = document.getElementById("idtexto");
   nodoInsertar.innerHTML = "";
   for (const property in datos) {
@@ -32,7 +42,7 @@ function reqListener() {
   cambiarTitulo(datos.nombre);
 }
 
-function cambiarImagen(nombreImagen){
+function cambiarImagen(nombreImagen) {
   const nodoImagen = document.querySelectorAll("figure img");
   let nombreSinTildes = quitarTildes(nombreImagen);
   nodoImagen[0].src = `imagenes/${nombreSinTildes}.jpg`;
@@ -40,15 +50,18 @@ function cambiarImagen(nombreImagen){
   nodoPieImagen.innerHTML = `${nombreImagen}`;
 }
 
-function cambiarTitulo(nombre){
+function cambiarTitulo(nombre) {
   const nodoTitulo = document.getElementById("idcab");
   nodoTitulo.innerHTML = "";
   nodoTitulo.innerHTML = `Signo ${nombre}`;
 }
 
-function quitarTildes(cadena){
-    // Reemplazar letras con tilde por letras sin tilde
-    var resultado = cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+function quitarTildes(cadena) {
+  // Reemplazar letras con tilde por letras sin tilde
+  var resultado = cadena
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
 
   return resultado;
 }
