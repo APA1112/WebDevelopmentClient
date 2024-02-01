@@ -1,0 +1,20 @@
+.comentario{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.imagen{
+    height: 100%;
+    width: auto;
+}
+
+.comentario_contenedor{
+    flex-grow: 1;
+    text-align: center;
+}
+
+.comentario_texto{
+    margin: 10px 0;
+}
