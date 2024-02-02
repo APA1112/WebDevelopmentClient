@@ -1,0 +1,16 @@
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 33%;
+}
+
+.imagen{
+    width: 100%;
+    height: auto;
+}
+
+.texto{
+    text-align: center;
+    color: black;
+}
