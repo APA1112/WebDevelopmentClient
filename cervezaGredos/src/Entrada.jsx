@@ -9,7 +9,8 @@ export function Entrada(props) {
   );
 }
 
-//Otra forma de pasarle los parámetros al componente
+//Otra forma de pasarle los parámetros al componente, en la que solo pasamos
+//las variables necesarias para el componente
 /*
 export function Entrada({foto, alt, texto}) {
   return (
