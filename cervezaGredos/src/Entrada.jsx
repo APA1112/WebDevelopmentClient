@@ -8,3 +8,15 @@ export function Entrada(props) {
     </div>
   );
 }
+
+//Otra forma de pasarle los parámetros al componente
+/*
+export function Entrada({foto, alt, texto}) {
+  return (
+    <div className={styles.contenedor}>
+      <img className={styles.imagen} src={foto} alt={alt} />
+      <p className={styles.texto}>{texto}</p>
+    </div>
+  );
+}
+ */
