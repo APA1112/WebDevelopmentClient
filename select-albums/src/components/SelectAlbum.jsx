@@ -20,9 +20,9 @@ function SelectAlbums(){
       }
 
       function leerId(e){
-        const id = e.target.index + 1;
+        const id = parseInt(e.target.index + 1);
         console.log(id)
-        return id;
+        return(id);
       }
 
       return(
