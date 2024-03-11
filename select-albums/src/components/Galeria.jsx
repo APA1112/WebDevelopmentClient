@@ -1,29 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import styles from "./Galeria.module.css";
+import { IndiceContext } from "./IndiceProvider";
 
 function Galeria() {
-  const [id, setId] = useState(1);
-  const [galeria, setGaleria] = useState();
-  const urlFotos = `https://jsonplaceholder.typicode.com/albums/${id}/photos`;
+  const {indice} = useContext(IndiceContext)
+  const [galeria, setGaleria] = useState([]);
+  
 
   useEffect(() => {
+    const urlFotos = `https://jsonplaceholder.typicode.com/albums/${indice}/photos`;
     fetch(urlFotos)
       .then((response) => response.json())
       .then((datos) => {
         setGaleria(datos);
-        console.log(galeria);
       });
   }, []);
 
-  if (!galeria) {
+  if (galeria.length===0) {
     return <div>Cargando...</div>;
   }
 
   return (
     <>
       <div className={styles.galeria}>
-        {galeria.map((foto) => (
-          <img key={foto.id} src={foto.thumbnailUrl} alt={foto.title}></img>
+        {galeria.slice(0,8).map((foto) => (
+          <img key={foto.id} src={foto.thumbnailUrl} alt={foto.title} className={styles.item}></img>
         ))}
       </div>
     </>

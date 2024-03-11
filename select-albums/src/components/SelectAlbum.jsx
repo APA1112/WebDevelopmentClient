@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import styles from './SelectAlbum.module.css'
+import { IndiceContext } from "./IndiceProvider";
 
 const url = `https://jsonplaceholder.typicode.com/albums`;
 
-
 function SelectAlbums(){
     const [options, setOptions] = useState(null);
+    const {setIndice} = useContext(IndiceContext)
 
     useEffect(() => {
         fetch(url)
@@ -21,8 +22,7 @@ function SelectAlbums(){
 
       function leerId(e){
         const id = parseInt(e.target.index + 1);
-        console.log(id)
-        return(id);
+        setIndice(id);
       }
 
       return(

@@ -1,15 +1,21 @@
-import { useState } from 'react'
+import { useContext } from 'react'
 import SelectAlbums from './components/SelectAlbum'
 import Galeria from './components/Galeria'
 import './App.css'
+import { IndiceContext } from './components/IndiceProvider'
+import Header from './components/Header'
 
 function App() {
-  const [indice, setIndice] = useState(1)
+  const {indice} = useContext(IndiceContext)
+  console.log(indice)
 
   return (
     <>
-      <SelectAlbums/>
-      <Galeria/>
+      <div className='container'>
+        <Header/>
+        <SelectAlbums/>
+        <Galeria/>
+      </div>
     </>
   )
 }
